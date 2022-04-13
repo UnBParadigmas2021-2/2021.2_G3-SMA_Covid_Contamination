@@ -1,33 +1,24 @@
-# RepositorioTemplate
-Esse repositório é para ser utilizado pelos grupos como um template inicial, da home page do Projeto.
-
-**!! *Atenção: Renomeie o seu repositório para (Ano.Semestre)_(Grupo)_(Paradigma)_(NomeDoProjeto)*. !!** 
-
-Paradigmas:
- - Funcional
- - Logico
- - SMA
-
-**!! *Não coloque os nomes dos alunos no título do repositório*. !!**
-
-**!! *Exemplo de título correto: 2021.2_G1_Logico_ProjetoRoteirosAereos*. !!**
- 
- (Apague essa seção)
-
-# NomeDoProjeto
+# Covid Contamination
 
 **Disciplina**: FGA0210 - PARADIGMAS DE PROGRAMAÇÃO - T01 <br>
-**Nro do Grupo**: XX<br>
-**Paradigma**: XXXXXXXXXX<br>
+**Nro do Grupo**: 03<br>
+**Paradigma**: SMA<br>
 
 ## Alunos
 |Matrícula | Aluno |
-| -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| ---------- | ------------------------------- |
+| 19/0063441 | Ana Carolina Carvalho da Silva  |
+| 18/0113151 | Eduardo Nunes Picolo            |
+| 18/0113861 | Kleidson Alves Corrêa           |
+| 18/0125770 | Lucas Gabriel Bezerra           |
+| 18/0114077 | Lucas Rodrigues Fonseca         |
+| 18/0106970 | Matheus Gabriel Alves Rodrigues |
+| 18/0129058 | Paulo Victor da Silva           |
+| 18/0129287 | Pedro Henrique Vieira Lima      |
+| 18/0130722 | Samuel Nogueira                 |
 
 ## Sobre 
-Descreva o seu projeto em linhas gerais. 
+Utilizando o Paradigma SMA, o grupo decidiu construir um sistema de simulação do processo de contaminação de Covid-19 em uma população, partindo do ponto de termos uma pessoa contaminada e analisando o processo que acontece de contato e contaminação entre as pessoas. 
 
 ## Screenshots
 Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
