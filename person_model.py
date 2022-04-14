@@ -7,6 +7,9 @@ class PersonAgent(Agent):
         self.isContaminated = False
         self.encountersWithContaminated = 0      
 
+    def step(self):
+        contamination_level = "contaminated" if self.isContaminated else "not contaminated"
+        print("Hi, I am agent " + str(self.unique_id) + " and I'm " + contamination_level)
 
 class PersonModel(Model):
     def __init__(self, N):
