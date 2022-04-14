@@ -9,8 +9,15 @@ class PersonAgent(Agent):
         super().__init__(unique_id, model)
         self.isContaminated = False
         # self.encountersWithContaminated = 0
+        self.isSymptomatic = True
         self.daysContaminated = 0
         self.isTransmitter = False
+
+    def probabilityInfection(self, symptomatic):
+        if not symptomatic:
+            return self.random.choices([True, False], [0.58, 0.42])[0]
+
+        return True
 
     def updateStatus(self):
         if self.daysContaminated == self.recoveryDay:
@@ -27,9 +34,10 @@ class PersonAgent(Agent):
         if self.isContaminated == True:
             other_agent.isContaminated = True
 
-        else:
-            if other_agent.isContaminated == True:
-                self.isContaminated = True
+        elif other_agent.isContaminated == True:
+            self.probabilityCalculator(other_agent.isSymptomatic)
+            self.isContaminated = True
+            self.isSymptomatic = self.random.choice([True, False])
 
     def printStatus(self):
         contamination_level = "contaminated" if self.isContaminated else "not contaminated"
