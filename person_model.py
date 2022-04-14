@@ -14,6 +14,11 @@ class PersonAgent(Agent):
 class PersonModel(Model):
     def __init__(self, N):
         self.number_of_agents = N
+        self.schedule = RandomActivation(self)
 
         for i in range(self.number_of_agents):
             agent = PersonAgent(i, self)
+            self.schedule.add(agent)
+
+    def step(self):
+        self.schedule.step()
