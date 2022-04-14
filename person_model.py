@@ -8,7 +8,6 @@ class PersonAgent(Agent):
     def __init__(self, unique_id, model):
         super().__init__(unique_id, model)
         self.isContaminated = False
-        # self.encountersWithContaminated = 0
         self.isSymptomatic = True
         self.daysContaminated = 0
         self.isTransmitter = False
@@ -16,7 +15,6 @@ class PersonAgent(Agent):
     def probabilityInfection(self, symptomatic):
         if not symptomatic:
             return self.random.choices([True, False], [0.58, 0.42])[0]
-
         return True
 
     def updateStatus(self):
@@ -32,11 +30,12 @@ class PersonAgent(Agent):
         other_agent = self.random.choice(self.model.schedule.agents)
 
         if self.isContaminated == True:
-            other_agent.isContaminated = True
+            other_agent.isContaminated = self.probabilityInfection(
+                self.isSymptomatic)
 
-        elif other_agent.isContaminated == True:
-            self.probabilityCalculator(other_agent.isSymptomatic)
-            self.isContaminated = True
+        elif other_agent.isContaminated == True and not self.isContaminated:
+            self.isContaminated = self.probabilityInfection(
+                other_agent.isSymptomatic)
             self.isSymptomatic = self.random.choice([True, False])
 
     def printStatus(self):
