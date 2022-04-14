@@ -34,5 +34,8 @@ class PersonModel(Model):
             agent = PersonAgent(i, self)
             self.schedule.add(agent)
 
+            if i == 0:
+              agent.isContaminated = True
+
     def step(self):
         self.schedule.step()
