@@ -4,11 +4,10 @@ from person_model import PersonModel
 
 
 def agentPortrayal(agent):
-    portrayal = {"Shape": "circle", "Filled": "true","r": 0.75}
+    portrayal = {"Shape": "circle","Label": f"agente {str(agent.unique_id)}","Filled": "true","r": 0.75}
     if agent.isContaminated:
         portrayal["Color"] = "red"
         portrayal["Layer"] = 0
-        portrayal["Label"] = agent.unique_id
     else:    
         portrayal["Color"] = "yellow"
         portrayal["Layer"] = 0
@@ -24,7 +23,7 @@ def agentPortrayal(agent):
 canvasElement = CanvasGrid(agentPortrayal, 20,20, 500, 500)
 
 server =  ModularServer(
-    PersonModel, [canvasElement], "Covid Contamination", {"N":5}
+    PersonModel, [canvasElement], "Covid Contamination", {"N":100}
 )
 
 server.port = 8521
