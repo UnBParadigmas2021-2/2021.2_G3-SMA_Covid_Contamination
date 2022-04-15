@@ -33,11 +33,21 @@ class PersonAgent(Agent):
         if self.isTransmitter and not other_agent.isContaminated:
             other_agent.isContaminated = self.probabilityInfection(
                 self.isSymptomatic)
+            if other_agent.isContaminated:
+                print(f"Eu, agente {str(self.unique_id)}, contaminei o agente {str(other_agent.unique_id)}")
+            else:
+                print(f"Eu, agente {str(self.unique_id)}, entrei em contato, mas não contaminei o agente {str(other_agent.unique_id)}")
 
         elif other_agent.isTransmitter and not self.isContaminated:
             self.isContaminated = self.probabilityInfection(
                 other_agent.isSymptomatic)
-            self.isSymptomatic = self.random.choice([True, False])
+            if self.isContaminated:
+                self.isSymptomatic = self.random.choice([True, False])
+                print(f"Eu, agente {str(self.unique_id)}, fui contaminado pelo agente {str(other_agent.unique_id)}")
+            else:
+                print(f"Eu, agente {str(self.unique_id)}, entrei em contato, mas não fui contaminado pelo agente {str(other_agent.unique_id)}")
+
+
 
     def printStatus(self, other_agent):
         contamination_level = "contaminated" if self.isContaminated else "not contaminated"
@@ -48,6 +58,9 @@ class PersonAgent(Agent):
 
     def step(self):
         other_agent = self.random.choice(self.model.schedule.agents)
+
+        while other_agent.unique_id == self.unique_id:
+            other_agent = self.random.choice(self.model.schedule.agents)
 
         self.verifyContact(other_agent)
         self.updateStatus()
