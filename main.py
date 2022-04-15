@@ -7,6 +7,5 @@ if __name__ == "__main__":
 
     for i in range(50):
         personModel.step()
-        print("\n ---------------- Iteration " + str(i + 1) + " ---------------- \n")
-
-
+        print("\n ---------------- Iteration " +
+              str(i + 1) + " ---------------- \n")
