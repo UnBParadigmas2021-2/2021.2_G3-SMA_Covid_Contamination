@@ -3,18 +3,22 @@ from mesa.visualization.ModularVisualization import ModularServer
 from person_model import PersonModel
 
 def agentPortrayal(agent):
-    portrayal = {"Shape": "circle","Label": f"agente {str(agent.unique_id)}","Filled": "true","r": 0.75}
+    portrayal = {"Shape": "circle","Agente": str(agent.unique_id),"Filled": "true","r": 0.75}
     if agent.isContaminated:
         portrayal["Color"] = "red"
+        portrayal["Estado"] = "Contaminado"
+        portrayal["Dias Contaminados"] = agent.daysContaminated
         portrayal["Layer"] = 0
     else:    
         portrayal["Color"] = "yellow"
+        portrayal["Estado"] = "Saudável"
+        portrayal["Dias Contaminados"] = 0
         portrayal["Layer"] = 0
 
     if agent.daysContaminated >= 7:
         portrayal["Color"] = "green"
+        portrayal["Estado"] = "Recuperado"
         portrayal["Layer"] = 0
-        # portrayal["r"] = 0.2
 
     return portrayal
 
