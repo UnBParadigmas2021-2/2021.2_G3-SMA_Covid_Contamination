@@ -2,7 +2,6 @@ from mesa.visualization.modules import CanvasGrid
 from mesa.visualization.ModularVisualization import ModularServer
 from person_model import PersonModel
 
-
 def agentPortrayal(agent):
     portrayal = {"Shape": "circle","Label": f"agente {str(agent.unique_id)}","Filled": "true","r": 0.75}
     if agent.isContaminated:
@@ -27,4 +26,3 @@ server =  ModularServer(
 )
 
 server.port = 8521
-server.launch()
