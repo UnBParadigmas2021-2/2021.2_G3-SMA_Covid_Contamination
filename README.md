@@ -18,25 +18,24 @@
 | 18/0130722 | Samuel Nogueira                 |
 
 ## Sobre 
-Utilizando o Paradigma SMA, o grupo decidiu construir um sistema de simulação do processo de contaminação de Covid-19 em uma população, partindo do ponto de termos uma pessoa contaminada e analisando o processo que acontece de contato e contaminação entre as pessoas. 
+Utilizando o paradigma SMA e pensando no contexto da pandemia, o grupo decidiu construir um sistema que simula o processo de contaminação de Covid-19 em uma população. 
+No início da simulação o ponto de partida é uma pessoa contaminada, após o paciente zero contrair o vírus é possível visualizar o processo de contato e contaminação entre as outras pessoas até se alastrar, podendo ocorrer reincidência da infecção e até mesmo aqueles que não contraíram mesmo com o contato. 
+Resumidamente, apresentamos como se comporta um surto de contaminação como o que ocorreu com o Covid. 
 
 ## Screenshots
 Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
 
 ## Instalação 
-**Linguagens**: xxxxxx<br>
-**Tecnologias**: xxxxxx<br>
-Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
-Insira um manual ou um script para auxiliar ainda mais.
+**Linguagens**: Python <br>
+**Tecnologias**: Python <br>
+
+Pré-requisito para rodar a aplicação é ter o Python instalado.
 
 ## Uso 
 Explique como usar seu projeto, caso haja algum passo a passo após o comando de execução.
 
 ## Vídeo
 Adicione 1 ou mais vídeos com a execução do projeto.
-
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas a seguir.
 
 ## Fontes
 Caso utilize materiais de terceiros, referencie-os adequadamente.
