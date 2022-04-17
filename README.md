@@ -42,8 +42,18 @@ Simulação
 
 Pré-requisito para rodar a aplicação é ter o Python instalado.
 
-## Uso 
-Explique como usar seu projeto, caso haja algum passo a passo após o comando de execução.
+## Uso
+Para executar o projeto basta instalar as dependências   
+
+```
+pip  install -r requirements.txt
+````
+
+Após instalar as dependências, basta usar o seguinte comando
+
+```
+python main.py
+```
 
 ## Vídeo
 Adicione 1 ou mais vídeos com a execução do projeto.
