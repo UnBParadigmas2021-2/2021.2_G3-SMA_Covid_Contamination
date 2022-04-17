@@ -23,9 +23,20 @@ No início da simulação o ponto de partida é uma pessoa contaminada, após o 
 Resumidamente, apresentamos como se comporta um surto de contaminação como o que ocorreu com o Covid. 
 
 ## Screenshots
-Adicione 2 ou mais screenshots do projeto em termos de interface e/ou funcionamento.
 
-## Instalação 
+Tela principal da aplicação 
+
+![Tela principal](/media/tela_principal.jpeg) 
+
+Quadro de contaminação
+
+![Contaminacao](/media/quadro_contaminacao.jpeg) 
+
+Simulação
+
+![Simulacao](/media/covid.gif) 
+
+## Instalação
 **Linguagens**: Python <br>
 **Tecnologias**: Python <br>
 
