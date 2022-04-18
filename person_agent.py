@@ -1,5 +1,5 @@
 from mesa import Agent
-from utils import width, height
+from utils import width, height, get_tx
 
 class PersonAgent(Agent):
     recoveryDay = 7
@@ -10,11 +10,16 @@ class PersonAgent(Agent):
         self.isSymptomatic = False
         self.daysContaminated = 0
         self.isTransmitter = False
+        self.isAlive = True
 
     def probabilityInfection(self, symptomatic):
-        if not symptomatic:
-            return self.random.choices([True, False], [0.58, 0.42])[0]
-        return True
+        tx_transmission, _ =   get_tx()
+        if tx_transmission < 0:
+            if not symptomatic:
+                return self.random.choices([True, False], [0.58, 0.42])[0]
+            return True
+        else:
+            return self.random.choices([True, False], [tx_transmission, 1-tx_transmission])[0]
 
     
     def our_neighborhood(self):
@@ -32,9 +37,10 @@ class PersonAgent(Agent):
         return neighborhood
             
     def move(self):
-        neighborhood = self.our_neighborhood()
-        move_to = self.random.choice(neighborhood)
-        self.model.grid.move_agent(self, move_to)
+        if self.isAlive:
+            neighborhood = self.our_neighborhood()
+            move_to = self.random.choice(neighborhood)
+            self.model.grid.move_agent(self, move_to)
     
     def updateStatus(self):
         if self.daysContaminated == self.recoveryDay:
@@ -43,6 +49,9 @@ class PersonAgent(Agent):
 
         if self.isContaminated:
             self.daysContaminated += 1
+            if self.isSymptomatic:
+                _, tx_death = get_tx()
+                self.isAlive = self.random.choices([True, False], [ 1 - tx_death, tx_death ])[0]
         else:
             self.daysContaminated = 0
 
@@ -52,10 +61,8 @@ class PersonAgent(Agent):
     def verifyContact(self):
         contact = self.model.grid.get_cell_list_contents([self.pos])
 
-        print(f"------- Vizinhos do Agente {self.unique_id} -------")
         for agent in contact:
-            print(str(agent.unique_id))
-            if self.isTransmitter and not agent.isContaminated:
+            if self.isTransmitter and not agent.isContaminated and agent.isAlive:
                 agent.isContaminated = self.probabilityInfection(
                     self.isSymptomatic)
                 # if agent.isContaminated:
@@ -63,7 +70,7 @@ class PersonAgent(Agent):
                 # else:
                 #     print(f"Eu, agente {str(self.unique_id)}, entrei em contato, mas não contaminei o agente {str(agent.unique_id)}")
 
-            elif agent.isTransmitter and not self.isContaminated:
+            elif agent.isTransmitter and not self.isContaminated and agent.isAlive:
                 self.isContaminated = self.probabilityInfection(
                     agent.isSymptomatic)
                 if self.isContaminated:
@@ -86,8 +93,9 @@ class PersonAgent(Agent):
 
         while other_agent.unique_id == self.unique_id:
             other_agent = self.random.choice(self.model.schedule.agents)
-
-        self.move()
-        self.verifyContact()
-        self.updateStatus()
+        
+        if self.isAlive:
+            self.move()
+            self.verifyContact()
+            self.updateStatus()
       #  self.printStatus(other_agent)
