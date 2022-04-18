@@ -26,6 +26,8 @@ def agentPortrayal(agent):
     if not agent.isAlive:
         portrayal["Color"] = "grey"
         portrayal["Layer"] = 0
+        portrayal["Estado"] = "Falecido"
+
 
     return portrayal
 
