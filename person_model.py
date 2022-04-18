@@ -2,9 +2,9 @@ from mesa import Model
 from mesa.time import RandomActivation
 from mesa.space import MultiGrid
 from person_agent import PersonAgent
+from utils import width, height
 
-width = 20
-height = 20
+
 class PersonModel(Model):
   def __init__(self, N):
       self.numAgents = N
@@ -17,7 +17,7 @@ class PersonModel(Model):
           y = self.random.randrange(height)
           agent = PersonAgent(i, self)
           self.schedule.add(agent)
-          self.grid.place_agent(agent, (x, y))
+          self.grid.place_agent(agent, (x , y))
           if i == 0:
               agent.isContaminated = True
               agent.isTransmitter = True
