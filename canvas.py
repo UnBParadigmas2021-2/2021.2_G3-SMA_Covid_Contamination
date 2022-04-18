@@ -4,20 +4,24 @@ from mesa.visualization.UserParam import UserSettableParameter
 from person_model import PersonModel
 from utils import height, width
 
-
 def agentPortrayal(agent):
     portrayal = {"Shape": "circle","text": f"{str(agent.unique_id)}", "text_color": "black","Filled": "true","r": 0.75}
+
     if agent.isContaminated:
         portrayal["Color"] = "red"
+        portrayal["Estado"] = "Contaminado"
+        portrayal["Dias Contaminados"] = agent.daysContaminated
         portrayal["Layer"] = 0
     else:    
         portrayal["Color"] = "yellow"
+        portrayal["Estado"] = "Saudável"
+        portrayal["Dias Contaminados"] = 0
         portrayal["Layer"] = 0
 
     if agent.daysContaminated >= 7:
         portrayal["Color"] = "green"
+        portrayal["Estado"] = "Recuperado"
         portrayal["Layer"] = 0
-        # portrayal["r"] = 0.2
 
     if not agent.isAlive:
         portrayal["Color"] = "grey"
@@ -43,4 +47,4 @@ server =  ModularServer(
 
 
 server.port = 8521
-server.launch()
+
