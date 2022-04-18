@@ -1,10 +1,10 @@
 from mesa.visualization.modules import CanvasGrid
 from mesa.visualization.ModularVisualization import ModularServer
 from person_model import PersonModel
-
+from utils import height, width, persons
 
 def agentPortrayal(agent):
-    portrayal = {"Shape": "circle","Label": f"agente {str(agent.unique_id)}","Filled": "true","r": 0.75}
+    portrayal = {"Shape": "circle","text": f"{str(agent.unique_id)}", "text_color": "black","Filled": "true","r": 0.75}
     if agent.isContaminated:
         portrayal["Color"] = "red"
         portrayal["Layer"] = 0
@@ -20,10 +20,10 @@ def agentPortrayal(agent):
     return portrayal
 
 
-canvasElement = CanvasGrid(agentPortrayal, 20,20, 500, 500)
+canvasElement = CanvasGrid(agentPortrayal, width, height, 500, 500)
 
 server =  ModularServer(
-    PersonModel, [canvasElement], "Covid Contamination", {"N":100}
+    PersonModel, [canvasElement], "Covid Contamination", {"N":persons}
 )
 
 server.port = 8521
