@@ -44,15 +44,27 @@ Como pode ser visto no gif acima, os indivíduos em vermelho são aqueles contam
 No momento em que nenhum paciente possui a cor vermelha é porque a doença foi extinta. Apesar disso, aqueles que ganharam a cor cinza, ou seja, que faleceram, não são alterados e permanecem no mesmo lugar.
 
 ## Instalação
-**Linguagens**: Python <br>
-**Tecnologias**: Python <br>
+Linguagens: Python <br>
+Tecnologias: Framework [MESA](https://mesa.readthedocs.io/en/latest/index.html) <br>
 
-Pré-requisito para rodar a aplicação é ter o Python instalado.
+Pré-requisito para rodar a aplicação é ter o [Python 3](https://www.python.org/downloads/) instalado.
 
 ## Uso
-Para executar o projeto basta instalar as dependências   
+Clone o repositório
 
 ```
+git clone https://github.com/UnBParadigmas2021-2/2021.2_G3-SMA_Covid_Contamination.git
+````
+
+Entre no diretório clonado
+
+````
+cd 2021.2_G3-SMA_Covid_Contamination/
+````
+
+Para executar o projeto basta instalar as dependências
+
+````
 pip  install -r requirements.txt
 ````
 
@@ -61,6 +73,11 @@ Após instalar as dependências, basta usar o seguinte comando
 ```
 python main.py
 ```
+
+Simulação da instalação
+
+![Simulacao instalacao](/media/covid-1.gif) 
+
 
 ## Vídeo
 O vídeo do projeto está no seguinte [link](https://youtu.be/yD-6Cup9MtU)
