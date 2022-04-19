@@ -28,13 +28,20 @@ Tela principal da aplicação
 
 ![Tela principal](/media/tela_principal.jpeg) 
 
+Cada bola amarela representa um indivíduo que pode ser identificado pelo número atribuído a cada um deles.
+
 Quadro de contaminação
 
 ![Contaminacao](/media/quadro_contaminacao.jpeg) 
 
+Quando o indivíduo é contaminado ele recebe a cor vermelha.
+
 Simulação
 
 ![Simulacao](/media/covid.gif) 
+
+Como pode ser visto no gif acima, os indivíduos em vermelho são aqueles contaminados, quando ganham a cor verde é porque se recuperaram da doença, entretanto, quando ganham a cor cinza é porque o mesmo faleceu. 
+No momento em que nenhum paciente possui a cor vermelha é porque a doença foi extinta. Apesar disso, aqueles que ganharam a cor cinza, ou seja, que faleceram, não são alterados e permanecem no mesmo lugar.
 
 ## Instalação
 **Linguagens**: Python <br>
@@ -56,7 +63,16 @@ python main.py
 ```
 
 ## Vídeo
-Adicione 1 ou mais vídeos com a execução do projeto.
+O vídeo do projeto está no seguinte [link](https://youtu.be/yD-6Cup9MtU)
 
 ## Fontes
-Caso utilize materiais de terceiros, referencie-os adequadamente.
+Para desenvolver o projeto o time usou algumas fontes de referência:
+Para validar os dados sobre o Covid-19 e ajustar os parâmetros foram usadas duas fontes.
+
+<b> CONTE, J. Como funciona o ciclo da covid-19 no organismo?. </b> <https://drauziovarella.uol.com.br/coronavirus/como-funciona-o-ciclo-da-covid-19-no-organismo/>. Acesso em: 11 abr. 2022.
+
+<b>World Health Organization. Mask use in the context of COVID-19. </b> <https://www.who.int/publications/i/item/advice-on-the-use-of-masks-in-the-community-during-home-care-and-in-healthcare-settings-in-the-context-of-the-novel-coronavirus-(2019-ncov)-outbreak>. Acesso em: 11 abr. 2022.
+
+Usamos a documentação do framework Mesa para implementá-lo no projeto. 
+
+<b> Mesa: Agent-based modeling in Python 3+ </b> <https://mesa.readthedocs.io/en/latest/index.html>. Acesso em 13 abr.
